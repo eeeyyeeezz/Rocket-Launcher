@@ -7,12 +7,15 @@
 
 import UIKit
 
-class InfoScreenViewController: UIViewController {
+class InfoScreenViewController: UIView {
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    title = "Info"
-    view.backgroundColor = .blue
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    backgroundColor = .blue
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
 
 

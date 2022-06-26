@@ -9,21 +9,24 @@
 /* Begin PBXBuildFile section */
 		EA3A1B7C28689D8900987CBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B7B28689D8900987CBB /* AppDelegate.swift */; };
 		EA3A1B7E28689D8900987CBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B7D28689D8900987CBB /* SceneDelegate.swift */; };
-		EA3A1B8028689D8900987CBB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B7F28689D8900987CBB /* StartViewController.swift */; };
+		EA3A1B8028689D8900987CBB /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B7F28689D8900987CBB /* StartScreenViewController.swift */; };
 		EA3A1B8328689D8900987CBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA3A1B8128689D8900987CBB /* Main.storyboard */; };
 		EA3A1B8528689D8A00987CBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3A1B8428689D8A00987CBB /* Assets.xcassets */; };
 		EA3A1B8828689D8A00987CBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA3A1B8628689D8A00987CBB /* LaunchScreen.storyboard */; };
 		EA3A1B962868A75F00987CBB /* InfoScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B952868A75F00987CBB /* InfoScreenViewController.swift */; };
 		EA3A1B982868A78300987CBB /* RocketsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B972868A78300987CBB /* RocketsScreenViewController.swift */; };
 		EA3A1B9A2868A7A300987CBB /* SettingsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B992868A7A300987CBB /* SettingsScreenViewController.swift */; };
-		EA3A1BA02868B44C00987CBB /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B9F2868B44C00987CBB /* JSONParser.swift */; };
+		EA3A1BA02868B44C00987CBB /* JSONStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B9F2868B44C00987CBB /* JSONStruct.swift */; };
+		EABEEFE62868B9B9002E4D4D /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABEEFE52868B9B9002E4D4D /* JSONParser.swift */; };
+		EABEEFE82868C28D002E4D4D /* ScreenCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABEEFE72868C28D002E4D4D /* ScreenCollectionView.swift */; };
+		EABEEFEA2868C419002E4D4D /* ScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABEEFE92868C419002E4D4D /* ScreenCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EA3A1B7828689D8900987CBB /* Rocket Launcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rocket Launcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3A1B7B28689D8900987CBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA3A1B7D28689D8900987CBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EA3A1B7F28689D8900987CBB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		EA3A1B7F28689D8900987CBB /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		EA3A1B8228689D8900987CBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA3A1B8428689D8A00987CBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA3A1B8728689D8A00987CBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -31,7 +34,10 @@
 		EA3A1B952868A75F00987CBB /* InfoScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScreenViewController.swift; sourceTree = "<group>"; };
 		EA3A1B972868A78300987CBB /* RocketsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsScreenViewController.swift; sourceTree = "<group>"; };
 		EA3A1B992868A7A300987CBB /* SettingsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenViewController.swift; sourceTree = "<group>"; };
-		EA3A1B9F2868B44C00987CBB /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		EA3A1B9F2868B44C00987CBB /* JSONStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStruct.swift; sourceTree = "<group>"; };
+		EABEEFE52868B9B9002E4D4D /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		EABEEFE72868C28D002E4D4D /* ScreenCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCollectionView.swift; sourceTree = "<group>"; };
+		EABEEFE92868C419002E4D4D /* ScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 		EA3A1B912868A5B100987CBB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EA3A1B9E2868B43D00987CBB /* JSONData */,
 				EA3A1BA12868B4AC00987CBB /* MainScreens */,
 				EA3A1B9B2868B39400987CBB /* StartScreen */,
 			);
@@ -127,7 +134,6 @@
 		EA3A1B9B2868B39400987CBB /* StartScreen */ = {
 			isa = PBXGroup;
 			children = (
-				EA3A1B9E2868B43D00987CBB /* Model */,
 				EA3A1B9C2868B39C00987CBB /* View */,
 			);
 			path = StartScreen;
@@ -136,17 +142,20 @@
 		EA3A1B9C2868B39C00987CBB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EA3A1B7F28689D8900987CBB /* StartViewController.swift */,
+				EA3A1B7F28689D8900987CBB /* StartScreenViewController.swift */,
+				EABEEFE72868C28D002E4D4D /* ScreenCollectionView.swift */,
+				EABEEFE92868C419002E4D4D /* ScreenCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		EA3A1B9E2868B43D00987CBB /* Model */ = {
+		EA3A1B9E2868B43D00987CBB /* JSONData */ = {
 			isa = PBXGroup;
 			children = (
-				EA3A1B9F2868B44C00987CBB /* JSONParser.swift */,
+				EA3A1B9F2868B44C00987CBB /* JSONStruct.swift */,
+				EABEEFE52868B9B9002E4D4D /* JSONParser.swift */,
 			);
-			path = Model;
+			path = JSONData;
 			sourceTree = "<group>";
 		};
 		EA3A1BA12868B4AC00987CBB /* MainScreens */ = {
@@ -230,12 +239,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EABEEFE82868C28D002E4D4D /* ScreenCollectionView.swift in Sources */,
 				EA3A1B982868A78300987CBB /* RocketsScreenViewController.swift in Sources */,
+				EABEEFE62868B9B9002E4D4D /* JSONParser.swift in Sources */,
 				EA3A1B962868A75F00987CBB /* InfoScreenViewController.swift in Sources */,
-				EA3A1BA02868B44C00987CBB /* JSONParser.swift in Sources */,
-				EA3A1B8028689D8900987CBB /* StartViewController.swift in Sources */,
+				EA3A1BA02868B44C00987CBB /* JSONStruct.swift in Sources */,
+				EA3A1B8028689D8900987CBB /* StartScreenViewController.swift in Sources */,
 				EA3A1B7C28689D8900987CBB /* AppDelegate.swift in Sources */,
 				EA3A1B7E28689D8900987CBB /* SceneDelegate.swift in Sources */,
+				EABEEFEA2868C419002E4D4D /* ScreenCollectionViewCell.swift in Sources */,
 				EA3A1B9A2868A7A300987CBB /* SettingsScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
