@@ -15,13 +15,16 @@ class StartViewController: UIViewController {
     image.frame = view.bounds
     return image
   }()
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     view.addSubview(backgroundCover)
   }
 
-	
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(true)
+  }
+
 
 }
 
