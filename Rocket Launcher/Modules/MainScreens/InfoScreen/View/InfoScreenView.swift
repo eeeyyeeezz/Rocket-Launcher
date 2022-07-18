@@ -9,17 +9,20 @@ import UIKit
 
 class InfoScreenView: UIView {
 
+  private let parametrsCollectionView = ParametrsCollectionView()
+
+  private let rocketStruct: RocketStruct?
+
   private let rocketName: UILabel = {
-		let label = UILabel()
-    label.text = "Test Rocket"
+    let label = UILabel()
     label.textColor = .white
     label.font = label.font.withSize(32)
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
 
-
-  override init(frame: CGRect) {
+  init(frame: CGRect, rocketStruct: RocketStruct) {
+    self.rocketStruct = rocketStruct
     super.init(frame: frame)
     backgroundColor = .black
   }
@@ -44,6 +47,14 @@ extension InfoScreenView {
       rocketName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
       rocketName.trailingAnchor.constraint(equalTo: trailingAnchor),
       rocketName.heightAnchor.constraint(equalToConstant: 50)
+    ])
+
+    addSubview(parametrsCollectionView)
+    NSLayoutConstraint.activate([
+      parametrsCollectionView.topAnchor.constraint(equalTo: rocketName.bottomAnchor, constant: 20),
+      parametrsCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+      parametrsCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35),
+      parametrsCollectionView.heightAnchor.constraint(equalToConstant: 100)
     ])
   }
 

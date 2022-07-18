@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: - StructElement
-struct StructElement: Decodable {
+struct RocketStruct: Decodable {
     let height, diameter: Diameter
     let mass: Mass
     let firstStage: FirstStage

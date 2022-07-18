@@ -9,12 +9,12 @@ import Foundation
 
 struct JSONParser {
 
-  static func parsData(completionHandler: @escaping (([StructElement]) -> Void)) {
+  static func parsData(completionHandler: @escaping (([RocketStruct]) -> Void)) {
 		if let url = URL(string: "https://api.spacexdata.com/v4/rockets") {
 			URLSession.shared.dataTask(with: url) { data, response, error in
 				if let data = data {
 					do {
-						let result = try JSONDecoder().decode([StructElement].self, from: data)
+						let result = try JSONDecoder().decode([RocketStruct].self, from: data)
 						completionHandler(result)
 					} catch let error {
 						debugPrint(error)
