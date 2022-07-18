@@ -7,13 +7,13 @@
 
 import UIKit
 
-class SettingsScreenViewController: UIViewController {
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    title = "Settings"
-    view.backgroundColor = .orange
+class SettingsScreenViewController: UIView {
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    backgroundColor = .red
   }
 
-
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 }
