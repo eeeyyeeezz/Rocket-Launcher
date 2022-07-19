@@ -15,7 +15,14 @@ class RocketsCollectionViewCell: UICollectionViewCell {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
+    backgroundColor = nil
+  }
 
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    if let infoView = infoView {
+      addSubview(infoView)
+    }
   }
 
   required init?(coder: NSCoder) {

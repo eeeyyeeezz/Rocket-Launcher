@@ -9,7 +9,7 @@ import UIKit
 
 class InfoScreenView: UIView {
 
-  private let parametrsCollectionView = ParametrsCollectionView()
+  private lazy var parametrsCollectionView = ParametrsCollectionView(rocketStruct: rocketStruct!)
 
   private let rocketStruct: RocketStruct?
 
@@ -25,6 +25,7 @@ class InfoScreenView: UIView {
     self.rocketStruct = rocketStruct
     super.init(frame: frame)
     backgroundColor = .black
+    layer.cornerRadius = 25
   }
 
   override func layoutSubviews() {
@@ -40,8 +41,13 @@ class InfoScreenView: UIView {
 
 extension InfoScreenView {
 
-  func setupBinding() {
-		addSubview(rocketName)
+  private func setupBinding() {
+    rocketName.text = rocketStruct?.name
+    addConstraints()
+  }
+
+  private func addConstraints() {
+    addSubview(rocketName)
     NSLayoutConstraint.activate([
       rocketName.topAnchor.constraint(equalTo: topAnchor, constant: 20),
       rocketName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),

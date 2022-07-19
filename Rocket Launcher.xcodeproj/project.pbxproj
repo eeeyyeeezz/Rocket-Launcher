@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3351AEFFF2B92BF65D96324 /* Pods_Rocket_Launcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88EB6CA8934FDBA3034D4012 /* Pods_Rocket_Launcher.framework */; };
 		EA3042B328856FA800C15B9C /* InfoScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3042B228856FA800C15B9C /* InfoScreenView.swift */; };
 		EA3042B52885757100C15B9C /* ParametrsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3042B42885757100C15B9C /* ParametrsCollectionView.swift */; };
 		EA3042B82885775000C15B9C /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3042B72885775000C15B9C /* InfoCollectionViewCell.swift */; };
@@ -26,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		225DDEDFC1C3F5E8C72966DD /* Pods-Rocket Launcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rocket Launcher.release.xcconfig"; path = "Target Support Files/Pods-Rocket Launcher/Pods-Rocket Launcher.release.xcconfig"; sourceTree = "<group>"; };
+		88EB6CA8934FDBA3034D4012 /* Pods_Rocket_Launcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rocket_Launcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99FBC16584048B11A46F60ED /* Pods-Rocket Launcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rocket Launcher.debug.xcconfig"; path = "Target Support Files/Pods-Rocket Launcher/Pods-Rocket Launcher.debug.xcconfig"; sourceTree = "<group>"; };
 		EA3042B228856FA800C15B9C /* InfoScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScreenView.swift; sourceTree = "<group>"; };
 		EA3042B42885757100C15B9C /* ParametrsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametrsCollectionView.swift; sourceTree = "<group>"; };
 		EA3042B72885775000C15B9C /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -51,12 +55,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3351AEFFF2B92BF65D96324 /* Pods_Rocket_Launcher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A267B73D7109117B4CFA67BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88EB6CA8934FDBA3034D4012 /* Pods_Rocket_Launcher.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0629448E72CFC7D3408C73C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				99FBC16584048B11A46F60ED /* Pods-Rocket Launcher.debug.xcconfig */,
+				225DDEDFC1C3F5E8C72966DD /* Pods-Rocket Launcher.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EA3042B128856F9E00C15B9C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +122,8 @@
 			children = (
 				EA3A1B7A28689D8900987CBB /* Rocket Launcher */,
 				EA3A1B7928689D8900987CBB /* Products */,
+				D0629448E72CFC7D3408C73C /* Pods */,
+				A267B73D7109117B4CFA67BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,9 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA3A1B8C28689D8A00987CBB /* Build configuration list for PBXNativeTarget "Rocket Launcher" */;
 			buildPhases = (
+				7FEC06EB8DF23272C4F27EB6 /* [CP] Check Pods Manifest.lock */,
 				EA3A1B7428689D8900987CBB /* Sources */,
 				EA3A1B7528689D8900987CBB /* Frameworks */,
 				EA3A1B7628689D8900987CBB /* Resources */,
+				F27E75A07C9D934059F1FF4A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,6 +285,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7FEC06EB8DF23272C4F27EB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rocket Launcher-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F27E75A07C9D934059F1FF4A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rocket Launcher/Pods-Rocket Launcher-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rocket Launcher/Pods-Rocket Launcher-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rocket Launcher/Pods-Rocket Launcher-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EA3A1B7428689D8900987CBB /* Sources */ = {
@@ -418,6 +487,7 @@
 		};
 		EA3A1B8D28689D8A00987CBB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99FBC16584048B11A46F60ED /* Pods-Rocket Launcher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -445,6 +515,7 @@
 		};
 		EA3A1B8E28689D8A00987CBB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 225DDEDFC1C3F5E8C72966DD /* Pods-Rocket Launcher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

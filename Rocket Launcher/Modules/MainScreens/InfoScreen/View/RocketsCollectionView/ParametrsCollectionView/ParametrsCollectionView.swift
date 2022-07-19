@@ -9,7 +9,10 @@ import UIKit
 
 class ParametrsCollectionView: UICollectionView {
 
-  init(){
+  let rocketStruct: RocketStruct?
+
+  init(rocketStruct: RocketStruct){
+    	self.rocketStruct = rocketStruct
       let layout = UICollectionViewFlowLayout()
       layout.scrollDirection = .horizontal
       super.init(frame: .zero, collectionViewLayout: layout)
@@ -26,35 +29,34 @@ class ParametrsCollectionView: UICollectionView {
 
 }
 
-extension ParametrsCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ParametrsCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    3
+    4
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = dequeueReusableCell(withReuseIdentifier: InfoCollectionViewCell.identifier, for: indexPath) as! InfoCollectionViewCell
-    JSONParser.parsData { array in
-      DispatchQueue.main.async {
-        switch indexPath.row {
-        case 0:
-          cell.magnitude.text = "Высота, mt"
-          cell.value.text = String(array[0].height.meters ?? 0)
-        case 1:
-          cell.magnitude.text = "Диаметр, mt"
-          cell.value.text = String(array[0].diameter.meters ?? 0)
-        case 2:
-          cell.magnitude.text = "Масса, kg"
-          cell.value.text = String(array[0].mass.kg)
-        default:
-          cell.magnitude.text = "Default"
-          cell.value.text = "nil"
-        }
+    cell.frame = bounds
+    DispatchQueue.main.async {
+      switch indexPath.row {
+      case 0:
+        cell.magnitude.text = "Высота, mt"
+        cell.value.text = String(self.rocketStruct?.height.meters ?? 0)
+      case 1:
+        cell.magnitude.text = "Диаметр, mt"
+        cell.value.text = String(self.rocketStruct?.diameter.meters ?? 0)
+      case 2:
+        cell.magnitude.text = "Масса, kg"
+        cell.value.text = String(self.rocketStruct?.mass.kg ?? 0)
+      default:
+        cell.magnitude.text = "Default"
+        cell.value.text = "nil"
       }
     }
     return cell
   }
 
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-      return CGSize(width: 100, height: 100)
-    }
+//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//      return CGSize(width: 100, height: 100)
+//    }
 }
