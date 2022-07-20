@@ -58,7 +58,6 @@ class InfoScreenViewController: UIViewController {
       }
     }
 
-
 //    view.addSubview(rocketCollectionView)
 //    NSLayoutConstraint.activate([
 //      rocketCollectionView.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),

@@ -1,5 +1,5 @@
 //
-//  RocketsScreenViewController.swift
+//  LaunchScreenViewController.swift
 //  Rocket Launcher
 //
 //  Created by Daniil Varavin on 26.06.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RocketsScreenViewController: UIView {
+class LaunchScreenViewController: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     backgroundColor = .white

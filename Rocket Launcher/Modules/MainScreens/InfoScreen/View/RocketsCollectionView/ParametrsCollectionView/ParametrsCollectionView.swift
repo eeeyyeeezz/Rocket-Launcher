@@ -11,7 +11,7 @@ class ParametrsCollectionView: UICollectionView {
 
   let rocketStruct: RocketStruct?
 
-  init(rocketStruct: RocketStruct){
+  init(rocketStruct: RocketStruct?){
     	self.rocketStruct = rocketStruct
       let layout = UICollectionViewFlowLayout()
       layout.scrollDirection = .horizontal

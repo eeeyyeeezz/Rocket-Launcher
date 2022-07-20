@@ -20,9 +20,12 @@
 		EA3A1B8328689D8900987CBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA3A1B8128689D8900987CBB /* Main.storyboard */; };
 		EA3A1B8528689D8A00987CBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3A1B8428689D8A00987CBB /* Assets.xcassets */; };
 		EA3A1B8828689D8A00987CBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA3A1B8628689D8A00987CBB /* LaunchScreen.storyboard */; };
-		EA3A1B982868A78300987CBB /* RocketsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B972868A78300987CBB /* RocketsScreenViewController.swift */; };
+		EA3A1B982868A78300987CBB /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B972868A78300987CBB /* LaunchScreenViewController.swift */; };
 		EA3A1B9A2868A7A300987CBB /* SettingsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B992868A7A300987CBB /* SettingsScreenViewController.swift */; };
 		EA3A1BA02868B44C00987CBB /* JSONStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A1B9F2868B44C00987CBB /* JSONStruct.swift */; };
+		EA91F6602887FC7600B63A4D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F65F2887FC7600B63A4D /* Extensions.swift */; };
+		EA91F6632888027700B63A4D /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F6622888027700B63A4D /* Constraints.swift */; };
+		EA91F6672888162B00B63A4D /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F6662888162B00B63A4D /* Labels.swift */; };
 		EABEEFE62868B9B9002E4D4D /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABEEFE52868B9B9002E4D4D /* JSONParser.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,9 +47,12 @@
 		EA3A1B8428689D8A00987CBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA3A1B8728689D8A00987CBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA3A1B8928689D8A00987CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EA3A1B972868A78300987CBB /* RocketsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsScreenViewController.swift; sourceTree = "<group>"; };
+		EA3A1B972868A78300987CBB /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		EA3A1B992868A7A300987CBB /* SettingsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenViewController.swift; sourceTree = "<group>"; };
 		EA3A1B9F2868B44C00987CBB /* JSONStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStruct.swift; sourceTree = "<group>"; };
+		EA91F65F2887FC7600B63A4D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		EA91F6622888027700B63A4D /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		EA91F6662888162B00B63A4D /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
 		EABEEFE52868B9B9002E4D4D /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +82,6 @@
 				99FBC16584048B11A46F60ED /* Pods-Rocket Launcher.debug.xcconfig */,
 				225DDEDFC1C3F5E8C72966DD /* Pods-Rocket Launcher.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				EA3A1B7F28689D8900987CBB /* InfoScreenViewController.swift */,
-				EA3042B228856FA800C15B9C /* InfoScreenView.swift */,
+				EA91F6612888026C00B63A4D /* InfoScreenView */,
 				EA3042BB2885890800C15B9C /* RocketsCollectionView */,
 			);
 			path = View;
@@ -170,6 +175,7 @@
 			children = (
 				EA3A1B9E2868B43D00987CBB /* JSONData */,
 				EA3A1BA12868B4AC00987CBB /* MainScreens */,
+				EA91F65F2887FC7600B63A4D /* Extensions.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -183,12 +189,12 @@
 			path = InfoScreen;
 			sourceTree = "<group>";
 		};
-		EA3A1B932868A74B00987CBB /* RocketsScreen */ = {
+		EA3A1B932868A74B00987CBB /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				EA3A1B972868A78300987CBB /* RocketsScreenViewController.swift */,
+				EA3A1B972868A78300987CBB /* LaunchScreenViewController.swift */,
 			);
-			path = RocketsScreen;
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		EA3A1B942868A75200987CBB /* SettingsScreen */ = {
@@ -212,10 +218,20 @@
 			isa = PBXGroup;
 			children = (
 				EA3A1B922868A70100987CBB /* InfoScreen */,
-				EA3A1B932868A74B00987CBB /* RocketsScreen */,
+				EA3A1B932868A74B00987CBB /* LaunchScreen */,
 				EA3A1B942868A75200987CBB /* SettingsScreen */,
 			);
 			path = MainScreens;
+			sourceTree = "<group>";
+		};
+		EA91F6612888026C00B63A4D /* InfoScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				EA3042B228856FA800C15B9C /* InfoScreenView.swift */,
+				EA91F6622888027700B63A4D /* Constraints.swift */,
+				EA91F6662888162B00B63A4D /* Labels.swift */,
+			);
+			path = InfoScreenView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,18 +350,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA3042B82885775000C15B9C /* InfoCollectionViewCell.swift in Sources */,
-				EA3A1B982868A78300987CBB /* RocketsScreenViewController.swift in Sources */,
+				EA3A1B982868A78300987CBB /* LaunchScreenViewController.swift in Sources */,
 				EABEEFE62868B9B9002E4D4D /* JSONParser.swift in Sources */,
 				EA3A1BA02868B44C00987CBB /* JSONStruct.swift in Sources */,
 				EA3042BD2885891600C15B9C /* RocketsCollectionViewCell.swift in Sources */,
 				EA3A1B8028689D8900987CBB /* InfoScreenViewController.swift in Sources */,
 				EA3A1B7C28689D8900987CBB /* AppDelegate.swift in Sources */,
+				EA91F6632888027700B63A4D /* Constraints.swift in Sources */,
 				EA3A1B7E28689D8900987CBB /* SceneDelegate.swift in Sources */,
 				EA3042BF28858D7E00C15B9C /* InfoScreenViewModel.swift in Sources */,
+				EA91F6672888162B00B63A4D /* Labels.swift in Sources */,
 				EA3042B52885757100C15B9C /* ParametrsCollectionView.swift in Sources */,
 				EA3042B328856FA800C15B9C /* InfoScreenView.swift in Sources */,
 				EA3042BA288588B800C15B9C /* RocketsCollectionView.swift in Sources */,
 				EA3A1B9A2868A7A300987CBB /* SettingsScreenViewController.swift in Sources */,
+				EA91F6602887FC7600B63A4D /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
