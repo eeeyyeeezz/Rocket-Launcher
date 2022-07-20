@@ -29,14 +29,15 @@ class ParametrsCollectionView: UICollectionView {
 
 }
 
-extension ParametrsCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ParametrsCollectionView: UICollectionViewDelegate,
+                                    UICollectionViewDataSource,
+																		UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     4
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = dequeueReusableCell(withReuseIdentifier: InfoCollectionViewCell.identifier, for: indexPath) as! InfoCollectionViewCell
-    cell.frame = bounds
     DispatchQueue.main.async {
       switch indexPath.row {
       case 0:
@@ -48,15 +49,18 @@ extension ParametrsCollectionView: UICollectionViewDelegate, UICollectionViewDat
       case 2:
         cell.magnitude.text = "Масса, kg"
         cell.value.text = String(self.rocketStruct?.mass.kg ?? 0)
+      case 3:
+        cell.magnitude.text = "Нагрузка, kg"
+        cell.value.text = String(self.rocketStruct?.payloadWeights.first?.kg ?? 0)
       default:
-        cell.magnitude.text = "Default"
+        cell.magnitude.text = "default"
         cell.value.text = "nil"
       }
     }
     return cell
   }
 
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//      return CGSize(width: 100, height: 100)
-//    }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+      return CGSize(width: 100, height: 100)
+    }
 }

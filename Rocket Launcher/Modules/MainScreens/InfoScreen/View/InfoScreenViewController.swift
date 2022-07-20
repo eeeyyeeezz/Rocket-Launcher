@@ -37,18 +37,35 @@ class InfoScreenViewController: UIViewController {
 
     viewModel.rocketStruct.subscribe { result in
       self.rocketCollectionView.rocketStruct = result.element
-      self.addConstraints()
+      DispatchQueue.main.async {
+        self.addConstraints()
+      }
     }.disposed(by: disposeBag)
   }
 
   private func addConstraints() {
-    view.addSubview(rocketCollectionView)
-    NSLayoutConstraint.activate([
-      rocketCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
-      rocketCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      rocketCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      rocketCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-    ])
+    JSONParser.parsData { result in
+      DispatchQueue.main.async {
+        let infoScreenView = InfoScreenView(frame: self.view.bounds, rocketStruct: result[0])
+        infoScreenView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(infoScreenView)
+        NSLayoutConstraint.activate([
+          infoScreenView.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -100),
+          infoScreenView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+          infoScreenView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+          infoScreenView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+      }
+    }
+
+
+//    view.addSubview(rocketCollectionView)
+//    NSLayoutConstraint.activate([
+//      rocketCollectionView.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
+//      rocketCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//      rocketCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//      rocketCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+//    ])
   }
 
 

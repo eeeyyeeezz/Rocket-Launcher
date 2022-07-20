@@ -34,23 +34,14 @@ extension RocketsCollectionView: UICollectionViewDelegate,
                                  UICollectionViewDataSource,
 																	UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    4
+    1
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = dequeueReusableCell(withReuseIdentifier: RocketsCollectionViewCell.identifier, for: indexPath) as! RocketsCollectionViewCell
     cell.frame = bounds
-    switch indexPath.row {
-    case 0:
-      cell.infoView = InfoScreenView(frame: bounds, rocketStruct: rocketStruct[0])
-    case 1:
-      cell.infoView = InfoScreenView(frame: bounds, rocketStruct: rocketStruct[1])
-    case 2:
-      cell.infoView = InfoScreenView(frame: bounds, rocketStruct: rocketStruct[2])
-    case 3:
-      cell.infoView = InfoScreenView(frame: bounds, rocketStruct: rocketStruct[3])
-    default:
-      cell.infoView = nil
+    if indexPath.row < rocketStruct.count {
+      cell.infoView = InfoScreenView(frame: bounds, rocketStruct: rocketStruct[indexPath.row])
     }
     return cell
   }
