@@ -19,7 +19,7 @@ class ParametrsCollectionView: UICollectionView {
       delegate = self
       dataSource = self
       backgroundColor = nil
-    register(InfoCollectionViewCell.self, forCellWithReuseIdentifier: InfoCollectionViewCell.identifier)
+    	register(ParametrsCollectionViewCell.self, forCellWithReuseIdentifier: ParametrsCollectionViewCell.identifier)
       translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -37,7 +37,7 @@ extension ParametrsCollectionView: UICollectionViewDelegate,
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = dequeueReusableCell(withReuseIdentifier: InfoCollectionViewCell.identifier, for: indexPath) as! InfoCollectionViewCell
+    let cell = dequeueReusableCell(withReuseIdentifier: ParametrsCollectionViewCell.identifier, for: indexPath) as! ParametrsCollectionViewCell
     DispatchQueue.main.async {
       switch indexPath.row {
       case 0:

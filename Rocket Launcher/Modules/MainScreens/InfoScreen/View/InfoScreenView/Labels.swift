@@ -52,6 +52,20 @@ extension InfoScreenView {
                               color: #colorLiteral(red: 0.9960784314, green: 0.9960784314, blue: 0.9960784314, alpha: 1),
                               font: UILabel().font.withSize(15))
     firstStepValueLabel.textAlignment = .right
+
+    secondStepInfoLabel = getLabel(text: "Количество двигателей\n\n"
+                               + "Количество топлива в тоннах\n\n"
+                               + "Время сгорания в секундах\n\n",
+                               color: #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6823529412, alpha: 1),
+                               font: UILabel().font.withSize(15))
+
+    secondStepValueLabel = getLabel(text: "\(rocketStruct?.secondStage.engines ?? 0)\n\n"
+                                   + "\(rocketStruct?.secondStage.fuelAmountTons ?? 0)\n\n"
+                                   + "\((rocketStruct?.secondStage.burnTimeSec ?? 0))\n\n",
+                              color: #colorLiteral(red: 0.9960784314, green: 0.9960784314, blue: 0.9960784314, alpha: 1),
+                              font: UILabel().font.withSize(15))
+    secondStepValueLabel.textAlignment = .right
+
   }
 
 }

@@ -10,7 +10,7 @@
 		A3351AEFFF2B92BF65D96324 /* Pods_Rocket_Launcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88EB6CA8934FDBA3034D4012 /* Pods_Rocket_Launcher.framework */; };
 		EA3042B328856FA800C15B9C /* InfoScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3042B228856FA800C15B9C /* InfoScreenView.swift */; };
 		EA3042B52885757100C15B9C /* ParametrsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3042B42885757100C15B9C /* ParametrsCollectionView.swift */; };
-		EA3042B82885775000C15B9C /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3042B72885775000C15B9C /* InfoCollectionViewCell.swift */; };
+		EA3042B82885775000C15B9C /* ParametrsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3042B72885775000C15B9C /* ParametrsCollectionViewCell.swift */; };
 		EA3042BA288588B800C15B9C /* RocketsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3042B9288588B800C15B9C /* RocketsCollectionView.swift */; };
 		EA3042BD2885891600C15B9C /* RocketsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3042BC2885891600C15B9C /* RocketsCollectionViewCell.swift */; };
 		EA3042BF28858D7E00C15B9C /* InfoScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3042BE28858D7E00C15B9C /* InfoScreenViewModel.swift */; };
@@ -26,6 +26,7 @@
 		EA91F6602887FC7600B63A4D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F65F2887FC7600B63A4D /* Extensions.swift */; };
 		EA91F6632888027700B63A4D /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F6622888027700B63A4D /* Constraints.swift */; };
 		EA91F6672888162B00B63A4D /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F6662888162B00B63A4D /* Labels.swift */; };
+		EAAC4B1D288834B100BC2414 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC4B1C288834B100BC2414 /* BackgroundView.swift */; };
 		EABEEFE62868B9B9002E4D4D /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABEEFE52868B9B9002E4D4D /* JSONParser.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +36,7 @@
 		99FBC16584048B11A46F60ED /* Pods-Rocket Launcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rocket Launcher.debug.xcconfig"; path = "Target Support Files/Pods-Rocket Launcher/Pods-Rocket Launcher.debug.xcconfig"; sourceTree = "<group>"; };
 		EA3042B228856FA800C15B9C /* InfoScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScreenView.swift; sourceTree = "<group>"; };
 		EA3042B42885757100C15B9C /* ParametrsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametrsCollectionView.swift; sourceTree = "<group>"; };
-		EA3042B72885775000C15B9C /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA3042B72885775000C15B9C /* ParametrsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametrsCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA3042B9288588B800C15B9C /* RocketsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsCollectionView.swift; sourceTree = "<group>"; };
 		EA3042BC2885891600C15B9C /* RocketsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA3042BE28858D7E00C15B9C /* InfoScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScreenViewModel.swift; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		EA91F65F2887FC7600B63A4D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EA91F6622888027700B63A4D /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		EA91F6662888162B00B63A4D /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		EAAC4B1C288834B100BC2414 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		EABEEFE52868B9B9002E4D4D /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				EA3042B42885757100C15B9C /* ParametrsCollectionView.swift */,
-				EA3042B72885775000C15B9C /* InfoCollectionViewCell.swift */,
+				EA3042B72885775000C15B9C /* ParametrsCollectionViewCell.swift */,
 			);
 			path = ParametrsCollectionView;
 			sourceTree = "<group>";
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				EA3042B228856FA800C15B9C /* InfoScreenView.swift */,
+				EAAC4B1C288834B100BC2414 /* BackgroundView.swift */,
 				EA91F6622888027700B63A4D /* Constraints.swift */,
 				EA91F6662888162B00B63A4D /* Labels.swift */,
 			);
@@ -349,13 +352,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA3042B82885775000C15B9C /* InfoCollectionViewCell.swift in Sources */,
+				EA3042B82885775000C15B9C /* ParametrsCollectionViewCell.swift in Sources */,
 				EA3A1B982868A78300987CBB /* LaunchScreenViewController.swift in Sources */,
 				EABEEFE62868B9B9002E4D4D /* JSONParser.swift in Sources */,
 				EA3A1BA02868B44C00987CBB /* JSONStruct.swift in Sources */,
 				EA3042BD2885891600C15B9C /* RocketsCollectionViewCell.swift in Sources */,
 				EA3A1B8028689D8900987CBB /* InfoScreenViewController.swift in Sources */,
 				EA3A1B7C28689D8900987CBB /* AppDelegate.swift in Sources */,
+				EAAC4B1D288834B100BC2414 /* BackgroundView.swift in Sources */,
 				EA91F6632888027700B63A4D /* Constraints.swift in Sources */,
 				EA3A1B7E28689D8900987CBB /* SceneDelegate.swift in Sources */,
 				EA3042BF28858D7E00C15B9C /* InfoScreenViewModel.swift in Sources */,

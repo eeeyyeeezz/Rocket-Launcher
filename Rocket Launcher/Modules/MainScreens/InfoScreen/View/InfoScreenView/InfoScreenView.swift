@@ -7,9 +7,7 @@
 
 import UIKit
 
-class InfoScreenView: UIView {
-
-  lazy var parametrsCollectionView = ParametrsCollectionView(rocketStruct: rocketStruct)
+class InfoScreenView: UIScrollView {
 
   let rocketStruct: RocketStruct?
 
@@ -24,23 +22,29 @@ class InfoScreenView: UIView {
 
   var firstStepValueLabel: UILabel!
 
+  var secondStepInfoLabel: UILabel!
+
+  var secondStepValueLabel: UILabel!
+
+  let settingsButton: UIButton = {
+    let button = UIButton()
+    button.setImage(UIImage(named: "gear"), for: .normal)
+    button.translatesAutoresizingMaskIntoConstraints = false
+    return button
+  }()
+
   init(frame: CGRect, rocketStruct: RocketStruct?) {
     self.rocketStruct = rocketStruct
     super.init(frame: frame)
     backgroundColor = .black
+//    contentSize = frame.size
+    setupBinding()
   }
 
   private func setupBinding() {
     setupLabels()
     addConstraints()
     roundCorners(corners: [.topLeft, .topRight], radius: 25.0)
-//    contentOffset.x = 0 // Скролл доступен только по вертикали
-//    isDirectionalLockEnabled = true
-  }
-
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    setupBinding()
   }
 
   required init?(coder: NSCoder) {

@@ -7,9 +7,9 @@
 
 import UIKit
 
-class InfoCollectionViewCell: UICollectionViewCell {
+class ParametrsCollectionViewCell: UICollectionViewCell {
 
-  static let identifier: String = "InfoCollectionViewCell"
+  static let identifier: String = "ParametrsCollectionViewCell"
 
   lazy var value: UILabel = {
     let label = UILabel()
@@ -23,7 +23,6 @@ class InfoCollectionViewCell: UICollectionViewCell {
     let label = UILabel()
     label.textColor = #colorLiteral(red: 0.5333333333, green: 0.537254902, blue: 0.537254902, alpha: 1)
     label.font = label.font.withSize(14)
-//    label.adjustsFontSizeToFitWidth = true
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -41,7 +40,7 @@ class InfoCollectionViewCell: UICollectionViewCell {
   
 }
 
-extension InfoCollectionViewCell {
+extension ParametrsCollectionViewCell {
 
   func setupBinding() {
 		addSubview(value)

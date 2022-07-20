@@ -43,20 +43,20 @@ class InfoScreenViewController: UIViewController {
     }.disposed(by: disposeBag)
   }
 
+  override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    .portrait
+  }
+
   private func addConstraints() {
-    JSONParser.parsData { result in
-      DispatchQueue.main.async {
-        let infoScreenView = InfoScreenView(frame: self.view.bounds, rocketStruct: result[0])
-        infoScreenView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(infoScreenView)
-        NSLayoutConstraint.activate([
-          infoScreenView.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -100),
-          infoScreenView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-          infoScreenView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-          infoScreenView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
-      }
-    }
+    let infoScreenView = InfoScreenView(frame: view.bounds, rocketStruct: nil)
+    infoScreenView.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(infoScreenView)
+    NSLayoutConstraint.activate([
+      infoScreenView.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
+      infoScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      infoScreenView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      infoScreenView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
 
 //    view.addSubview(rocketCollectionView)
 //    NSLayoutConstraint.activate([
