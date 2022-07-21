@@ -1,6 +1,7 @@
 import Foundation
 
 // MARK: - StructElement
+
 struct RocketStruct: Decodable {
     let height, diameter: Diameter
     let mass: Mass
@@ -36,11 +37,13 @@ struct RocketStruct: Decodable {
 }
 
 // MARK: - Diameter
+
 struct Diameter: Decodable {
     let meters, feet: Double?
 }
 
 // MARK: - Engines
+
 struct Engines: Decodable {
     let isp: ISP
     let thrustSeaLevel, thrustVacuum: Thrust
@@ -64,6 +67,7 @@ struct Engines: Decodable {
 }
 
 // MARK: - ISP
+
 struct ISP: Decodable {
     let seaLevel, vacuum: Int
 
@@ -74,11 +78,13 @@ struct ISP: Decodable {
 }
 
 // MARK: - Thrust
+
 struct Thrust: Decodable {
     let kN, lbf: Int
 }
 
 // MARK: - FirstStage
+
 struct FirstStage: Decodable {
     let thrustSeaLevel, thrustVacuum: Thrust
     let reusable: Bool
@@ -96,23 +102,27 @@ struct FirstStage: Decodable {
 }
 
 // MARK: - LandingLegs
+
 struct LandingLegs: Decodable {
     let number: Int
     let material: String?
 }
 
 // MARK: - Mass
+
 struct Mass: Decodable {
     let kg, lb: Int
 }
 
 // MARK: - PayloadWeight
+
 struct PayloadWeight: Decodable {
     let id, name: String
     let kg, lb: Int
 }
 
 // MARK: - SecondStage
+
 struct SecondStage: Decodable {
     let thrust: Thrust
     let payloads: Payloads
@@ -129,6 +139,7 @@ struct SecondStage: Decodable {
 }
 
 // MARK: - Payloads
+
 struct Payloads: Decodable {
     let compositeFairing: CompositeFairing
     let option1: String
@@ -140,6 +151,7 @@ struct Payloads: Decodable {
 }
 
 // MARK: - CompositeFairing
+
 struct CompositeFairing: Decodable {
     let height, diameter: Diameter
 }

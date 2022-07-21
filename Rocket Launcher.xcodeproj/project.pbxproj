@@ -26,7 +26,9 @@
 		EA91F6602887FC7600B63A4D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F65F2887FC7600B63A4D /* Extensions.swift */; };
 		EA91F6632888027700B63A4D /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F6622888027700B63A4D /* Constraints.swift */; };
 		EA91F6672888162B00B63A4D /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F6662888162B00B63A4D /* Labels.swift */; };
-		EAAC4B1D288834B100BC2414 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC4B1C288834B100BC2414 /* BackgroundView.swift */; };
+		EAAC4B222889274A00BC2414 /* InfoScreenViewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC4B212889274A00BC2414 /* InfoScreenViewCollectionView.swift */; };
+		EAAC4B2528892ABB00BC2414 /* InfoScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC4B2428892ABB00BC2414 /* InfoScreenCollectionViewCell.swift */; };
+		EAAC4B2728892FF000BC2414 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC4B2628892FF000BC2414 /* Layout.swift */; };
 		EABEEFE62868B9B9002E4D4D /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABEEFE52868B9B9002E4D4D /* JSONParser.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +56,9 @@
 		EA91F65F2887FC7600B63A4D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EA91F6622888027700B63A4D /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		EA91F6662888162B00B63A4D /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
-		EAAC4B1C288834B100BC2414 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		EAAC4B212889274A00BC2414 /* InfoScreenViewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScreenViewCollectionView.swift; sourceTree = "<group>"; };
+		EAAC4B2428892ABB00BC2414 /* InfoScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScreenCollectionViewCell.swift; sourceTree = "<group>"; };
+		EAAC4B2628892FF000BC2414 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		EABEEFE52868B9B9002E4D4D /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,12 +233,22 @@
 		EA91F6612888026C00B63A4D /* InfoScreenView */ = {
 			isa = PBXGroup;
 			children = (
+				EAAC4B2328892A9200BC2414 /* InfoScreenCollectionView */,
 				EA3042B228856FA800C15B9C /* InfoScreenView.swift */,
-				EAAC4B1C288834B100BC2414 /* BackgroundView.swift */,
 				EA91F6622888027700B63A4D /* Constraints.swift */,
 				EA91F6662888162B00B63A4D /* Labels.swift */,
 			);
 			path = InfoScreenView;
+			sourceTree = "<group>";
+		};
+		EAAC4B2328892A9200BC2414 /* InfoScreenCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				EAAC4B212889274A00BC2414 /* InfoScreenViewCollectionView.swift */,
+				EAAC4B2428892ABB00BC2414 /* InfoScreenCollectionViewCell.swift */,
+				EAAC4B2628892FF000BC2414 /* Layout.swift */,
+			);
+			path = InfoScreenCollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,15 +373,17 @@
 				EA3042BD2885891600C15B9C /* RocketsCollectionViewCell.swift in Sources */,
 				EA3A1B8028689D8900987CBB /* InfoScreenViewController.swift in Sources */,
 				EA3A1B7C28689D8900987CBB /* AppDelegate.swift in Sources */,
-				EAAC4B1D288834B100BC2414 /* BackgroundView.swift in Sources */,
 				EA91F6632888027700B63A4D /* Constraints.swift in Sources */,
 				EA3A1B7E28689D8900987CBB /* SceneDelegate.swift in Sources */,
 				EA3042BF28858D7E00C15B9C /* InfoScreenViewModel.swift in Sources */,
 				EA91F6672888162B00B63A4D /* Labels.swift in Sources */,
 				EA3042B52885757100C15B9C /* ParametrsCollectionView.swift in Sources */,
+				EAAC4B2528892ABB00BC2414 /* InfoScreenCollectionViewCell.swift in Sources */,
+				EAAC4B2728892FF000BC2414 /* Layout.swift in Sources */,
 				EA3042B328856FA800C15B9C /* InfoScreenView.swift in Sources */,
 				EA3042BA288588B800C15B9C /* RocketsCollectionView.swift in Sources */,
 				EA3A1B9A2868A7A300987CBB /* SettingsScreenViewController.swift in Sources */,
+				EAAC4B222889274A00BC2414 /* InfoScreenViewCollectionView.swift in Sources */,
 				EA91F6602887FC7600B63A4D /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

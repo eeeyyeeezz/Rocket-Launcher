@@ -6,7 +6,7 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-extension ObservableType {
+public extension ObservableType {
     /**
      Returns an observable sequence that invokes the specified factory function whenever a new observer subscribes.
 
@@ -15,14 +15,15 @@ extension ObservableType {
      - parameter observableFactory: Observable factory function to invoke for each observer that subscribes to the resulting sequence.
      - returns: An observable sequence whose observers trigger an invocation of the given observable factory function.
      */
-    public static func deferred(_ observableFactory: @escaping () throws -> Observable<Element>)
-        -> Observable<Element> {
+    static func deferred(_ observableFactory: @escaping () throws -> Observable<Element>)
+        -> Observable<Element>
+    {
         Deferred(observableFactory: observableFactory)
     }
 }
 
-final private class DeferredSink<Source: ObservableType, Observer: ObserverType>: Sink<Observer>, ObserverType where Source.Element == Observer.Element {
-    typealias Element = Observer.Element 
+private final class DeferredSink<Source: ObservableType, Observer: ObserverType>: Sink<Observer>, ObserverType where Source.Element == Observer.Element {
+    typealias Element = Observer.Element
 
     private let observableFactory: () throws -> Source
 
@@ -30,45 +31,45 @@ final private class DeferredSink<Source: ObservableType, Observer: ObserverType>
         self.observableFactory = observableFactory
         super.init(observer: observer, cancel: cancel)
     }
-    
+
     func run() -> Disposable {
         do {
-            let result = try self.observableFactory()
+            let result = try observableFactory()
             return result.subscribe(self)
-        }
-        catch let e {
+        } catch let e {
             self.forwardOn(.error(e))
             self.dispose()
             return Disposables.create()
         }
     }
-    
+
     func on(_ event: Event<Element>) {
-        self.forwardOn(event)
-        
+        forwardOn(event)
+
         switch event {
         case .next:
             break
         case .error:
-            self.dispose()
+            dispose()
         case .completed:
-            self.dispose()
+            dispose()
         }
     }
 }
 
-final private class Deferred<Source: ObservableType>: Producer<Source.Element> {
+private final class Deferred<Source: ObservableType>: Producer<Source.Element> {
     typealias Factory = () throws -> Source
-    
-    private let observableFactory : Factory
-    
+
+    private let observableFactory: Factory
+
     init(observableFactory: @escaping Factory) {
         self.observableFactory = observableFactory
     }
-    
+
     override func run<Observer: ObserverType>(_ observer: Observer, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable)
-             where Observer.Element == Source.Element {
-        let sink = DeferredSink(observableFactory: self.observableFactory, observer: observer, cancel: cancel)
+        where Observer.Element == Source.Element
+    {
+        let sink = DeferredSink(observableFactory: observableFactory, observer: observer, cancel: cancel)
         let subscription = sink.run()
         return (sink: sink, subscription: subscription)
     }

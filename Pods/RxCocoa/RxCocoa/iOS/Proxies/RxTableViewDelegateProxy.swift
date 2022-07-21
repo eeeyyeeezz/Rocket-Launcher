@@ -8,24 +8,23 @@
 
 #if os(iOS) || os(tvOS)
 
-import UIKit
-import RxSwift
+    import RxSwift
+    import UIKit
 
-/// For more information take a look at `DelegateProxyType`.
-open class RxTableViewDelegateProxy
-    : RxScrollViewDelegateProxy {
+    /// For more information take a look at `DelegateProxyType`.
+    open class RxTableViewDelegateProxy:
+        RxScrollViewDelegateProxy
+    {
+        /// Typed parent object.
+        public private(set) weak var tableView: UITableView?
 
-    /// Typed parent object.
-    public weak private(set) var tableView: UITableView?
-
-    /// - parameter tableView: Parent object for delegate proxy.
-    public init(tableView: UITableView) {
-        self.tableView = tableView
-        super.init(scrollView: tableView)
+        /// - parameter tableView: Parent object for delegate proxy.
+        public init(tableView: UITableView) {
+            self.tableView = tableView
+            super.init(scrollView: tableView)
+        }
     }
 
-}
-
-extension RxTableViewDelegateProxy: UITableViewDelegate {}
+    extension RxTableViewDelegateProxy: UITableViewDelegate {}
 
 #endif

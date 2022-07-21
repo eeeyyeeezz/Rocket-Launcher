@@ -15,12 +15,12 @@
         public typealias Delegate = NSTextStorageDelegate
     }
 
-    open class RxTextStorageDelegateProxy
-        : DelegateProxy<NSTextStorage, NSTextStorageDelegate>
-        , DelegateProxyType {
-
+    open class RxTextStorageDelegateProxy:
+        DelegateProxy<NSTextStorage, NSTextStorageDelegate>,
+        DelegateProxyType
+    {
         /// Typed parent object.
-        public weak private(set) var textStorage: NSTextStorage?
+        public private(set) weak var textStorage: NSTextStorage?
 
         /// - parameter textStorage: Parent object for delegate proxy.
         public init(textStorage: NSTextStorage) {
@@ -30,7 +30,7 @@
 
         // Register known implementations
         public static func registerKnownImplementations() {
-            self.register { RxTextStorageDelegateProxy(textStorage: $0) }
+            register { RxTextStorageDelegateProxy(textStorage: $0) }
         }
     }
 

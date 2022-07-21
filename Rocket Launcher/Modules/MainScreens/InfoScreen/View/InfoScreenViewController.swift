@@ -5,58 +5,65 @@
 //  Created by Daniil Varavin on 26.06.2022.
 //
 
-import UIKit
 import RxSwift
+import UIKit
 
 class InfoScreenViewController: UIViewController {
+    private lazy var rocketCollectionView = RocketsCollectionView(rocketStruct: [])
 
-  private lazy var rocketCollectionView = RocketsCollectionView(rocketStruct: [])
+    private let viewModel = InfoScreenViewModel()
 
-	private let viewModel = InfoScreenViewModel()
+    private let disposeBag = DisposeBag()
 
-	private let disposeBag = DisposeBag()
+    private lazy var backgroundCover: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "FalconHeavy"))
+        image.contentMode = .scaleAspectFill
+        image.frame = view.bounds
+        return image
+    }()
 
-  private lazy var backgroundCover: UIImageView = {
-    let image = UIImageView(image: UIImage(named: "FalconHeavy"))
-    image.contentMode = .scaleAspectFill
-    image.frame = view.bounds
-    return image
-  }()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
+    override func viewDidAppear(_: Bool) {
+        super.viewDidAppear(true)
+        setupBinding()
+    }
 
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(true)
-    setupBinding()
-  }
+    private func setupBinding() {
+        view.addSubview(backgroundCover)
 
-  private func setupBinding() {
-    view.addSubview(backgroundCover)
+        viewModel.rocketStruct.subscribe { result in
+            self.rocketCollectionView.rocketStruct = result.element
+            DispatchQueue.main.async {
+                self.addConstraints()
+            }
+        }.disposed(by: disposeBag)
+    }
 
-    viewModel.rocketStruct.subscribe { result in
-      self.rocketCollectionView.rocketStruct = result.element
-      DispatchQueue.main.async {
-        self.addConstraints()
-      }
-    }.disposed(by: disposeBag)
-  }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        .portrait
+    }
 
-  override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-    .portrait
-  }
+    private func addConstraints() {
+        let infoScreenView = InfoScreenCollectionView(frame: view.frame)
+        view.addSubview(infoScreenView)
+        NSLayoutConstraint.activate([
+            infoScreenView.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
+            infoScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            infoScreenView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            infoScreenView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
 
-  private func addConstraints() {
-    let infoScreenView = InfoScreenView(frame: view.bounds, rocketStruct: nil)
-    infoScreenView.translatesAutoresizingMaskIntoConstraints = false
-    view.addSubview(infoScreenView)
-    NSLayoutConstraint.activate([
-      infoScreenView.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
-      infoScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      infoScreenView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      infoScreenView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-    ])
+//    let infoScreenView = InfoScreenView(frame: view.frame, rocketStruct: nil)
+//    view.addSubview(infoScreenView)
+//    NSLayoutConstraint.activate([
+//      infoScreenView.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
+//      infoScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//      infoScreenView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//      infoScreenView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+//    ])
 
 //    view.addSubview(rocketCollectionView)
 //    NSLayoutConstraint.activate([
@@ -65,8 +72,5 @@ class InfoScreenViewController: UIViewController {
 //      rocketCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 //      rocketCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 //    ])
-  }
-
-
+    }
 }
-

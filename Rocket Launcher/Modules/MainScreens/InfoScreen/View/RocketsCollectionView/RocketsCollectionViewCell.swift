@@ -8,25 +8,24 @@
 import UIKit
 
 class RocketsCollectionViewCell: UICollectionViewCell {
+    static let identifier: String = "RocketsCollectionViewCell"
 
-  static let identifier: String = "RocketsCollectionViewCell"
+    var infoView: InfoScreenView?
 
-  var infoView: InfoScreenView?
-
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    backgroundColor = nil
-  }
-
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    if let infoView = infoView {
-      addSubview(infoView)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = nil
     }
-  }
 
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if let infoView = infoView {
+            addSubview(infoView)
+        }
+    }
 
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
