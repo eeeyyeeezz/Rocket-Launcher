@@ -9,12 +9,20 @@ import UIKit
 
 class InfoPageViewController: UIPageViewController {
 
+    private let arrayInfoScreen: [InfoScreenViewController] = {
+        var array = [InfoScreenViewController]()
+        for i in 0...3 {
+            array.append(InfoScreenViewController(rocketId: i))
+        }
+        return array
+    }()
+
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
         super.init(transitionStyle: .scroll, navigationOrientation: navigationOrientation, options: options)
         view.backgroundColor = .black
         dataSource = self
         delegate = self
-        setViewControllers([InfoScreenViewController(rocketId: 0)], direction: .forward, animated: true)
+        setViewControllers([arrayInfoScreen[0]], direction: .forward, animated: true)
     }
 
     required init?(coder: NSCoder) {

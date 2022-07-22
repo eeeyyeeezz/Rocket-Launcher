@@ -38,7 +38,6 @@ class LabelCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-//    backgroundColor = .blue
     }
 
     override func layoutSubviews() {
@@ -88,13 +87,12 @@ class LabelCell: UICollectionViewCell {
 
     @objc
     private func openLauchScreen() {
-//    let launchScreen = LaunchScreenViewController()
-        debugPrint("Launch Screen")
+        NotificationCenter.default.post(name: .launchScreen, object: nil)
     }
 
     @objc
     func openSettingsScreen() {
-        debugPrint("Settings Screen")
+        NotificationCenter.default.post(name: .settings, object: nil)
     }
 
     @available(*, unavailable)

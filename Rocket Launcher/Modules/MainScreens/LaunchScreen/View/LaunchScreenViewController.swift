@@ -1,5 +1,5 @@
 //
-//  SettingsScreenViewController.swift
+//  LaunchScreenViewController.swift
 //  Rocket Launcher
 //
 //  Created by Daniil Varavin on 26.06.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsViewController: UITableViewController {
+class LaunchScreenViewController: UITableViewController {
 
     let rocketStruct: RocketStruct?
 
@@ -31,11 +31,10 @@ class SettingsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .black
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-

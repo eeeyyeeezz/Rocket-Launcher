@@ -17,3 +17,8 @@ extension UIView {
         layer.mask = mask
     }
 }
+
+extension Notification.Name {
+    static let launchScreen = Notification.Name("launchScreen")
+    static let settings = Notification.Name("settings")
+}

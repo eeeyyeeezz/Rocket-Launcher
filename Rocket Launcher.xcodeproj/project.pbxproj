@@ -171,7 +171,7 @@
 		EA3A1B932868A74B00987CBB /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				EA3A1B972868A78300987CBB /* LaunchScreenViewController.swift */,
+				EA911DEC288AEF6E00950038 /* View */,
 			);
 			path = LaunchScreen;
 			sourceTree = "<group>";
@@ -201,6 +201,14 @@
 				EA3A1B942868A75200987CBB /* SettingsScreen */,
 			);
 			path = MainScreens;
+			sourceTree = "<group>";
+		};
+		EA911DEC288AEF6E00950038 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EA3A1B972868A78300987CBB /* LaunchScreenViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EA91F6612888026C00B63A4D /* InfoScreenView */ = {
