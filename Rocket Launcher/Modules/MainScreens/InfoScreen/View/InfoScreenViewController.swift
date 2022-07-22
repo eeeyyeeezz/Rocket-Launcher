@@ -8,32 +8,29 @@
 import RxSwift
 import UIKit
 
-class InfoScreenViewController: UIPageViewController {
+class InfoScreenViewController: UIViewController {
+
     private let viewModel = InfoScreenViewModel()
 
     private let disposeBag = DisposeBag()
 
-//    let arrayInfoScreenViewControllers: [InfoScreenViewController] = {
-//		var arrayInfo = [InfoScreenViewController]()
-//        for _ in 0...3 {
-//            arrayInfo.append(InfoScreenViewController())
-//        }
-//        return arrayInfo
-//    }()
+    private let rocketId: Int
+
+    private var rocketStruct: [RocketStruct] = []
+
+    private var infoScreenView: InfoScreenCollectionView!
 
     private lazy var backgroundCover: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "FalconHeavy"))
+        let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.frame = view.bounds
+        image.frame = view.frame
+        image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
 
-    override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
-        super.init(transitionStyle: .scroll, navigationOrientation: navigationOrientation, options: options)
-        view.backgroundColor = .black
-        dataSource = self
-        delegate = self
-        setViewControllers([UIViewController()], direction: .forward, animated: true)
+    init(rocketId: Int) {
+        self.rocketId = rocketId
+        super.init(nibName: nil, bundle: nil)
     }
 
     override func viewDidLoad() {
@@ -42,51 +39,60 @@ class InfoScreenViewController: UIPageViewController {
     }
 
     private func setupBinding() {
+        view.backgroundColor = .black
         viewModel.rocketStruct.asObservable().subscribe(onNext: { result in
+            self.rocketStruct = result
             DispatchQueue.main.async {
-            	self.addConstraints(rocketStruct: result)
+            	self.addConstraints()
             }
         }).disposed(by: disposeBag)
+
+
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         .portrait
     }
 
- 	 private func addConstraints(rocketStruct: [RocketStruct]) {
-		debugPrint(rocketStruct.count)
-        let randomInt = Int.random(in: 0...2)
-        let infoScreenView = InfoScreenCollectionView(frame: view.frame, rocketStruct: rocketStruct[randomInt])
+ 	 private func addConstraints() {
+        infoScreenView = InfoScreenCollectionView(frame: view.frame, rocketStruct: rocketStruct[rocketId])
         view.addSubview(infoScreenView)
         NSLayoutConstraint.activate([
             infoScreenView.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
             infoScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             infoScreenView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            infoScreenView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70),
+            infoScreenView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
 
-//        view.addSubview(backgroundCover)
-        view.bringSubviewToFront(infoScreenView)
+        setImage()
+        view.addSubview(backgroundCover)
+        NSLayoutConstraint.activate([
+            backgroundCover.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundCover.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundCover.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundCover.bottomAnchor.constraint(equalTo: infoScreenView.topAnchor),
+ 		])
+         view.bringSubviewToFront(infoScreenView)
+    }
+
+    private func setImage() {
+        let randomId = Int.random(in: 0...rocketStruct[rocketId].flickrImages.count - 1)
+        guard let url = URL(string: rocketStruct[rocketId].flickrImages[randomId]) else { return }
+
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.backgroundCover.image = image
+                    }
+                }
+            }
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
-       super.init(coder: aDecoder)
+		self.rocketId = 0
+		super.init(coder: aDecoder)
     }
-}
-
-extension InfoScreenViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let vc = InfoScreenViewController()
-		return vc
-    }
-
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let vc = InfoScreenViewController()
-        return vc
-    }
-
-    func presentationCount(for pageViewController: UIPageViewController) -> Int { 4 }
-
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int { 2 }
 
 }

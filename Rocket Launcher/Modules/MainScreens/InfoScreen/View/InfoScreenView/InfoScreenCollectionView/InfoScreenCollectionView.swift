@@ -18,7 +18,7 @@ class InfoScreenCollectionView: UICollectionView {
         backgroundColor = .black
         register(ParametrsCell.self, forCellWithReuseIdentifier: ParametrsCell.identifier)
         register(LabelCell.self, forCellWithReuseIdentifier: LabelCell.identifier)
-        layer.cornerRadius = 15
+        roundCorners(corners: [.topLeft, .topRight], radius: 15)
         translatesAutoresizingMaskIntoConstraints = false
     }
 

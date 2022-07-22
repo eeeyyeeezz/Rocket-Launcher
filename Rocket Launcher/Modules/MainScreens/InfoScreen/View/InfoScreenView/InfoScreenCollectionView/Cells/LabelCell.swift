@@ -28,6 +28,14 @@ class LabelCell: UICollectionViewCell {
         return button
     }()
 
+    lazy var settingsButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "settings"), for: .normal)
+        button.addTarget(self, action: #selector(openSettingsScreen), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 //    backgroundColor = .blue
@@ -55,6 +63,16 @@ class LabelCell: UICollectionViewCell {
             ])
         }
 
+        if cellId == 0 {
+            addSubview(settingsButton)
+            NSLayoutConstraint.activate([
+                settingsButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+                settingsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+                settingsButton.heightAnchor.constraint(equalToConstant: 25),
+                settingsButton.widthAnchor.constraint(equalToConstant: 25)
+            ])
+        }
+
         if cellId == 7 {
             addSubview(button)
             NSLayoutConstraint.activate([
@@ -65,12 +83,18 @@ class LabelCell: UICollectionViewCell {
                 button.heightAnchor.constraint(equalToConstant: 50),
             ])
         }
+
     }
 
     @objc
     private func openLauchScreen() {
 //    let launchScreen = LaunchScreenViewController()
         debugPrint("Launch Screen")
+    }
+
+    @objc
+    func openSettingsScreen() {
+        debugPrint("Settings Screen")
     }
 
     @available(*, unavailable)
