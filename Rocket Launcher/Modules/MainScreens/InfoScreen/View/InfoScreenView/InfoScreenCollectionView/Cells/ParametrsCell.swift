@@ -1,13 +1,13 @@
 //
-//  InfoCollectionViewCell.swift
+//  InfoScreenCollectionViewCell.swift
 //  Rocket Launcher
 //
-//  Created by Daniil Varavin on 18.07.2022.
+//  Created by Daniil Varavin on 21.07.2022.
 //
 
 import UIKit
 
-class ParametrsCollectionViewCell: UICollectionViewCell {
+class ParametrsCell: UICollectionViewCell {
     static let identifier: String = "ParametrsCollectionViewCell"
 
     lazy var value: UILabel = {
@@ -39,7 +39,7 @@ class ParametrsCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension ParametrsCollectionViewCell {
+extension ParametrsCell {
     func setupBinding() {
         addSubview(value)
         NSLayoutConstraint.activate([

@@ -9,7 +9,7 @@ import RxCocoa
 import RxSwift
 
 class InfoScreenViewModel {
-    var rocketStruct = BehaviorRelay<[RocketStruct]>(value: [])
+    var rocketStruct = PublishRelay<[RocketStruct]>()
 
     var output: Output?
 
