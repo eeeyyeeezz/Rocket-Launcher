@@ -17,7 +17,7 @@ class LabelCell: UICollectionViewCell {
     var cellId: Int?
 
     private lazy var button: UIButton = {
-        let button = UIButton(type: .custom)
+        let button = UIButton(type: .system)
         button.setTitle("Посмотреть запуски", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.1294117647, green: 0.1294117647, blue: 0.1294117647, alpha: 1)
@@ -29,8 +29,8 @@ class LabelCell: UICollectionViewCell {
     }()
 
     lazy var settingsButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "settings"), for: .normal)
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "settings")?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(openSettingsScreen), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

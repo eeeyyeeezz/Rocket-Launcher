@@ -26,6 +26,8 @@
 		EAAC4B2A28897E0000BC2414 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC4B2928897E0000BC2414 /* LabelCell.swift */; };
 		EAAC4B302889829200BC2414 /* SetupLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC4B2F2889829200BC2414 /* SetupLabels.swift */; };
 		EABEEFE62868B9B9002E4D4D /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABEEFE52868B9B9002E4D4D /* JSONParser.swift */; };
+		EAD70A0B288C080B00672CD6 /* SettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD70A0A288C080B00672CD6 /* SettingsCellViewModel.swift */; };
+		EAD70A0D288C081F00672CD6 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD70A0C288C081F00672CD6 /* SettingsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		EAAC4B2928897E0000BC2414 /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		EAAC4B2F2889829200BC2414 /* SetupLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupLabels.swift; sourceTree = "<group>"; };
 		EABEEFE52868B9B9002E4D4D /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		EAD70A0A288C080B00672CD6 /* SettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellViewModel.swift; sourceTree = "<group>"; };
+		EAD70A0C288C081F00672CD6 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +183,8 @@
 		EA3A1B942868A75200987CBB /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				EA3A1B992868A7A300987CBB /* SettingsScreenViewController.swift */,
+				EAD70A09288C080300672CD6 /* View */,
+				EAD70A0A288C080B00672CD6 /* SettingsCellViewModel.swift */,
 			);
 			path = SettingsScreen;
 			sourceTree = "<group>";
@@ -229,6 +234,15 @@
 				EAAC4B2F2889829200BC2414 /* SetupLabels.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		EAD70A09288C080300672CD6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EA3A1B992868A7A300987CBB /* SettingsScreenViewController.swift */,
+				EAD70A0C288C081F00672CD6 /* SettingsCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +363,7 @@
 				EA3A1B982868A78300987CBB /* LaunchScreenViewController.swift in Sources */,
 				EABEEFE62868B9B9002E4D4D /* JSONParser.swift in Sources */,
 				EA3A1BA02868B44C00987CBB /* JSONStruct.swift in Sources */,
+				EAD70A0B288C080B00672CD6 /* SettingsCellViewModel.swift in Sources */,
 				EA4D1393288AB20F00700DA1 /* InfoPageViewController.swift in Sources */,
 				EA3A1B8028689D8900987CBB /* InfoScreenViewController.swift in Sources */,
 				EA3A1B7C28689D8900987CBB /* AppDelegate.swift in Sources */,
@@ -356,6 +371,7 @@
 				EA3042BF28858D7E00C15B9C /* InfoScreenViewModel.swift in Sources */,
 				EAAC4B2528892ABB00BC2414 /* ParametrsCell.swift in Sources */,
 				EAAC4B2728892FF000BC2414 /* Layout.swift in Sources */,
+				EAD70A0D288C081F00672CD6 /* SettingsCell.swift in Sources */,
 				EA3A1B9A2868A7A300987CBB /* SettingsScreenViewController.swift in Sources */,
 				EAAC4B222889274A00BC2414 /* InfoScreenCollectionView.swift in Sources */,
 				EAAC4B2A28897E0000BC2414 /* LabelCell.swift in Sources */,

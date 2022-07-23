@@ -18,13 +18,27 @@ class InfoScreenViewModel {
     }
 
     func setupBinding() {
-        JSONParser.parsData { result in
-            self.rocketStruct.accept(result)
-//      self.output?.rocketStruct.accept(result)
+        JSONParser.parsData { [weak self] result in
+            self?.rocketStruct.accept(result)
+//            self?.output = Output(rocketStruct: self!.rocketStruct)
+        }
+    }
+
+    func setImage(backgroundCover: UIImageView, rocketStruct: [RocketStruct], rocketId: Int) {
+        guard let url = URL(string: rocketStruct[rocketId].flickrImages[0]) else { return }
+
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        backgroundCover.image = image
+                    }
+                }
+            }
         }
     }
 
     struct Output {
-        var rocketStruct: BehaviorRelay<[RocketStruct]>
+        var rocketStruct: PublishRelay<[RocketStruct]>
     }
 }

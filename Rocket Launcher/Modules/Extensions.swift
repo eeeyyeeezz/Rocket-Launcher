@@ -7,6 +7,30 @@
 
 import UIKit
 
+enum ValueEnum {
+    enum Height: String {
+        case mt
+        case ft
+
+    }
+
+    enum Diametr: String {
+        case mt
+        case ft
+
+    }
+
+    enum Weight: String {
+        case ft
+        case kg
+    }
+
+    enum PayloadWeights: String {
+        case ft
+        case kg
+    }
+}
+
 extension UIView {
     func roundCorners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds,

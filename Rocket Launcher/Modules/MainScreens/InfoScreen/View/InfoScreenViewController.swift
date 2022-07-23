@@ -14,7 +14,7 @@ class InfoScreenViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
 
-    private let rocketId: Int
+    let rocketId: Int
 
     private var rocketStruct: [RocketStruct] = []
 
@@ -23,6 +23,10 @@ class InfoScreenViewController: UIViewController {
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        .portrait
+    }
 
     init(rocketId: Int) {
         self.rocketId = rocketId
@@ -34,11 +38,6 @@ class InfoScreenViewController: UIViewController {
         setupBinding()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(openLaunchScreen),
@@ -48,6 +47,12 @@ class InfoScreenViewController: UIViewController {
                                                name: .settings,
                                                object: nil)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+
 
     private func setupBinding() {
         view.backgroundColor = .black
@@ -57,10 +62,6 @@ class InfoScreenViewController: UIViewController {
             	self.addConstraints()
             }
         }).disposed(by: disposeBag)
-    }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        .portrait
     }
 
  	 private func addConstraints() {
@@ -73,29 +74,15 @@ class InfoScreenViewController: UIViewController {
             infoScreenView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
 
-        setImage()
+        viewModel.setImage(backgroundCover: backgroundCover, rocketStruct: rocketStruct, rocketId: rocketId)
         view.addSubview(backgroundCover)
         NSLayoutConstraint.activate([
             backgroundCover.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundCover.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundCover.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundCover.bottomAnchor.constraint(equalTo: infoScreenView.topAnchor),
+            backgroundCover.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: 100)
  		])
         view.bringSubviewToFront(infoScreenView)
-    }
-
-    private func setImage() {
-        guard let url = URL(string: rocketStruct[rocketId].flickrImages[0]) else { return }
-
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.backgroundCover.image = image
-                    }
-                }
-            }
-        }
     }
 
     @objc
@@ -107,8 +94,9 @@ class InfoScreenViewController: UIViewController {
 
     @objc
     func openSettingsScreen() {
-        let settingsViewController = SettingsViewController(rocketStruct: nil)
-        present(settingsViewController, animated: true, completion: nil)
+        let settingsViewController = SettingsViewController()
+        navigationController?.pushViewController(settingsViewController, animated: true)
+//        present(settingsViewController, animated: true, completion: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
