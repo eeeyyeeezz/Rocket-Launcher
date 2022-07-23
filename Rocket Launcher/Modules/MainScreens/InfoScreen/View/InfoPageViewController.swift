@@ -23,6 +23,7 @@ class InfoPageViewController: UIPageViewController {
         dataSource = self
         delegate = self
         setViewControllers([arrayInfoScreen[0]], direction: .forward, animated: true)
+//        setViewControllers([LaunchScreenViewController(rocketStruct: nil)], direction: .forward, animated: true)
     }
 
     required init?(coder: NSCoder) {

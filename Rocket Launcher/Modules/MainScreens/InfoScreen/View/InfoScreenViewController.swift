@@ -8,11 +8,7 @@
 import RxSwift
 import UIKit
 
-protocol InfoScreenProtocol: AnyObject {
-    func openLaunchScreen()
-}
-
-class InfoScreenViewController: UIViewController, InfoScreenProtocol {
+class InfoScreenViewController: UIViewController {
 
     private let viewModel = InfoScreenViewModel()
 
@@ -24,8 +20,6 @@ class InfoScreenViewController: UIViewController, InfoScreenProtocol {
 
     private lazy var backgroundCover: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFill
-        image.frame = view.frame
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -35,24 +29,28 @@ class InfoScreenViewController: UIViewController, InfoScreenProtocol {
         super.init(nibName: nil, bundle: nil)
     }
 
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
     }
 
-    private func setupBinding() {
-        view.backgroundColor = .black
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(openLaunchScreen),
                                                name: .launchScreen,
                                                object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(openSettingsScreen),
                                                name: .settings,
                                                object: nil)
+    }
+
+    private func setupBinding() {
+        view.backgroundColor = .black
         viewModel.rocketStruct.asObservable().subscribe(onNext: { result in
             self.rocketStruct = result
             DispatchQueue.main.async {
@@ -87,7 +85,6 @@ class InfoScreenViewController: UIViewController, InfoScreenProtocol {
     }
 
     private func setImage() {
-//        let randomId = Int.random(in: 0...rocketStruct[rocketId].flickrImages.count - 1)
         guard let url = URL(string: rocketStruct[rocketId].flickrImages[0]) else { return }
 
         DispatchQueue.global().async { [weak self] in
@@ -101,14 +98,17 @@ class InfoScreenViewController: UIViewController, InfoScreenProtocol {
         }
     }
 
-	@objc
-    func openSettingsScreen() {
-        present(SettingsViewController(rocketStruct: nil), animated: true, completion: nil)
+    @objc
+    func openLaunchScreen() {
+        let launchScreenViewController = LaunchScreenViewController(rocketStruct: rocketStruct[rocketId],
+                                                                    rocketName: rocketStruct[rocketId].name)
+        navigationController?.pushViewController(launchScreenViewController, animated: true)
     }
 
     @objc
-    func openLaunchScreen() {
-        navigationController?.pushViewController(LaunchScreenViewController(rocketStruct: nil), animated: true)
+    func openSettingsScreen() {
+        let settingsViewController = SettingsViewController(rocketStruct: nil)
+        present(settingsViewController, animated: true, completion: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {

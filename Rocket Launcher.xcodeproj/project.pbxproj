@@ -86,8 +86,9 @@
 		EA3042B128856F9E00C15B9C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EA4D1392288AB20F00700DA1 /* InfoPageViewController.swift */,
 				EA3A1B7F28689D8900987CBB /* InfoScreenViewController.swift */,
-				EA91F6612888026C00B63A4D /* InfoScreenView */,
+				EA91F6612888026C00B63A4D /* InfoScreenCollectionView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,7 +162,6 @@
 		EA3A1B922868A70100987CBB /* InfoScreen */ = {
 			isa = PBXGroup;
 			children = (
-				EA4D1392288AB20F00700DA1 /* InfoPageViewController.swift */,
 				EA3042B128856F9E00C15B9C /* View */,
 				EA3042C028858E1600C15B9C /* ViewModel */,
 			);
@@ -211,15 +211,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		EA91F6612888026C00B63A4D /* InfoScreenView */ = {
-			isa = PBXGroup;
-			children = (
-				EAAC4B2328892A9200BC2414 /* InfoScreenCollectionView */,
-			);
-			path = InfoScreenView;
-			sourceTree = "<group>";
-		};
-		EAAC4B2328892A9200BC2414 /* InfoScreenCollectionView */ = {
+		EA91F6612888026C00B63A4D /* InfoScreenCollectionView */ = {
 			isa = PBXGroup;
 			children = (
 				EAAC4B212889274A00BC2414 /* InfoScreenCollectionView.swift */,
