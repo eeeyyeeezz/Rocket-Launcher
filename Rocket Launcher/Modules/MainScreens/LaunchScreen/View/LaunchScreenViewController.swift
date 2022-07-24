@@ -42,7 +42,6 @@ class LaunchScreenViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .black
-        debugPrint(launchStructArray.count)
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.barTintColor = UIColor.black
         tableView.register(LaunchCell.self, forCellReuseIdentifier: LaunchCell.identifier)

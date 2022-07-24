@@ -8,7 +8,7 @@
 import UIKit
 
 class LaunchCellView: UIView {
-    let launchStruct: LaunchStruct?
+    var launchStruct: LaunchStruct?
 
     private let resultImage: UIImageView = {
         let image = UIImageView()
@@ -18,6 +18,7 @@ class LaunchCellView: UIView {
 
     private let launchName: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 2
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.textAlignment = .left
         label.adjustsFontSizeToFitWidth = true

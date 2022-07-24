@@ -18,6 +18,6 @@ class LaunchCellViewModel {
     }
 
     func getLaunchStruct() -> LaunchStruct {
-        launchStructArray[cellId]
+  		launchStructArray[cellId]
     }
 }

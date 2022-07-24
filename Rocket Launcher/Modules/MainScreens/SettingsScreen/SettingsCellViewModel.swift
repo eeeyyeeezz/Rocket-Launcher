@@ -15,10 +15,7 @@ class SettingsCellViewModel {
     }
 
     func changeSwitchValue() {
-        guard let cellId = cellId else {
-            debugPrint("SettingsError")
-            return
-        }
+        guard let cellId = cellId else { return }
         switch cellId {
         case 0:
             UserDefaults.standard.set("mt", forKey: ValueEnum.Height.mt.rawValue)

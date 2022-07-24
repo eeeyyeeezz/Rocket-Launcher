@@ -61,7 +61,6 @@ extension InfoScreenCollectionView {
         }
     }
 
-//    rocketStruct?.firstFlight
     func getValueLabel(indexPath: IndexPath) -> UILabel? {
         switch indexPath.section {
         case 2:

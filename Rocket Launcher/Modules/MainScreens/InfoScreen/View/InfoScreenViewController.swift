@@ -65,7 +65,6 @@ class InfoScreenViewController: UIViewController {
         }).disposed(by: disposeBag)
 
         viewModel.launchStruct.asObservable().subscribe(onNext: { [weak self] launchStruct in
-            debugPrint(launchStruct.count)
             self?.launchStruct = launchStruct
         }).disposed(by: disposeBag)
     }
@@ -101,8 +100,7 @@ class InfoScreenViewController: UIViewController {
     @objc
     func openSettingsScreen() {
         let settingsViewController = SettingsViewController()
-//        navigationController?.pushViewController(settingsViewController, animated: true)
-        present(settingsViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
 
     required init?(coder aDecoder: NSCoder) {

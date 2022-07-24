@@ -12,7 +12,7 @@ class LaunchCell: UITableViewCell {
 
     var viewModel: LaunchCellViewModel?
 
-    private lazy var launchCellView = LaunchCellView(frame: frame, launchStruct: viewModel?.getLaunchStruct())
+    private lazy var launchCellView: LaunchCellView? = .init(frame: frame, launchStruct: viewModel?.getLaunchStruct())
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,7 +25,14 @@ class LaunchCell: UITableViewCell {
         addConstraints()
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        launchCellView = nil
+        launchCellView = .init(frame: frame, launchStruct: viewModel?.getLaunchStruct())
+    }
+
     private func addConstraints() {
+        guard let launchCellView = launchCellView else { return }
         addSubview(launchCellView)
         NSLayoutConstraint.activate([
             launchCellView.topAnchor.constraint(equalTo: topAnchor, constant: 10),

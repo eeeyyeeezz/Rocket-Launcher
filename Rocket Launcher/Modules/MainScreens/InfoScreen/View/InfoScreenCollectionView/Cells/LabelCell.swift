@@ -45,6 +45,15 @@ class LabelCell: UICollectionViewCell {
         setupBinding()
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cellId = nil
+        mainLabel = nil
+        valueLabel = nil
+        button.isHidden = true
+        settingsButton.isHidden = true
+    }
+
     func setupBinding() {
         if let mainLabel = mainLabel {
             addSubview(mainLabel)
@@ -63,6 +72,7 @@ class LabelCell: UICollectionViewCell {
         }
 
         if cellId == 0 {
+            settingsButton.isHidden = false
             addSubview(settingsButton)
             NSLayoutConstraint.activate([
                 settingsButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
@@ -73,6 +83,7 @@ class LabelCell: UICollectionViewCell {
         }
 
         if cellId == 7 {
+            button.isHidden = false
             addSubview(button)
             NSLayoutConstraint.activate([
                 button.centerXAnchor.constraint(equalTo: centerXAnchor),

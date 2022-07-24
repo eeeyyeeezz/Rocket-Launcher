@@ -20,12 +20,10 @@ class InfoScreenViewModel {
 
     func setupBinding() {
         JSONParser.parsRocketData { [weak self] result in
-            debugPrint("rocket pars")
             self?.rocketStruct.accept(result)
         }
 
         JSONParser.parsLaunchData { [weak self] result in
-            debugPrint("launch pars")
             self?.launchStruct.accept(result)
         }
     }
