@@ -68,21 +68,20 @@ class LabelCell: UICollectionViewCell {
                 settingsButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
                 settingsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
                 settingsButton.heightAnchor.constraint(equalToConstant: 25),
-                settingsButton.widthAnchor.constraint(equalToConstant: 25)
+                settingsButton.widthAnchor.constraint(equalToConstant: 25),
             ])
         }
 
         if cellId == 7 {
             addSubview(button)
             NSLayoutConstraint.activate([
-                button.topAnchor.constraint(equalTo: topAnchor, constant: 30),
                 button.centerXAnchor.constraint(equalTo: centerXAnchor),
+                button.centerYAnchor.constraint(equalTo: centerYAnchor),
                 button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
                 button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
                 button.heightAnchor.constraint(equalToConstant: 50),
             ])
         }
-
     }
 
     @objc

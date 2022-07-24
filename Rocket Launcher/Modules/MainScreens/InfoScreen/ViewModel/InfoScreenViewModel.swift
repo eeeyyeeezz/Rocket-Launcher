@@ -6,10 +6,11 @@
 //
 
 import RxCocoa
-import RxSwift
 
 class InfoScreenViewModel {
     var rocketStruct = PublishRelay<[RocketStruct]>()
+
+    var launchStruct = PublishRelay<[LaunchStruct]>()
 
     var output: Output?
 
@@ -18,9 +19,14 @@ class InfoScreenViewModel {
     }
 
     func setupBinding() {
-        JSONParser.parsData { [weak self] result in
+        JSONParser.parsRocketData { [weak self] result in
+            debugPrint("rocket pars")
             self?.rocketStruct.accept(result)
-//            self?.output = Output(rocketStruct: self!.rocketStruct)
+        }
+
+        JSONParser.parsLaunchData { [weak self] result in
+            debugPrint("launch pars")
+            self?.launchStruct.accept(result)
         }
     }
 

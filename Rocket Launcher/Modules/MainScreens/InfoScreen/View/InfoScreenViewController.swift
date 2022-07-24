@@ -5,18 +5,20 @@
 //  Created by Daniil Varavin on 26.06.2022.
 //
 
+import RxRelay
 import RxSwift
 import UIKit
 
 class InfoScreenViewController: UIViewController {
+    let rocketId: Int
 
     private let viewModel = InfoScreenViewModel()
 
-    private let disposeBag = DisposeBag()
-
-    let rocketId: Int
-
     private var rocketStruct: [RocketStruct] = []
+
+    private var launchStruct: [LaunchStruct] = []
+
+    private let disposeBag = DisposeBag()
 
     private lazy var backgroundCover: UIImageView = {
         let image = UIImageView()
@@ -47,31 +49,35 @@ class InfoScreenViewController: UIViewController {
                                                name: .settings,
                                                object: nil)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
     }
 
-
     private func setupBinding() {
         view.backgroundColor = .black
-        viewModel.rocketStruct.asObservable().subscribe(onNext: { result in
-            self.rocketStruct = result
+        viewModel.rocketStruct.asObservable().subscribe(onNext: { [weak self] result in
+            self?.rocketStruct = result
             DispatchQueue.main.async {
-            	self.addConstraints()
+                self?.addConstraints()
             }
+        }).disposed(by: disposeBag)
+
+        viewModel.launchStruct.asObservable().subscribe(onNext: { [weak self] launchStruct in
+            debugPrint(launchStruct.count)
+            self?.launchStruct = launchStruct
         }).disposed(by: disposeBag)
     }
 
- 	 private func addConstraints() {
+    private func addConstraints() {
         let infoScreenView = InfoScreenCollectionView(frame: view.frame, rocketStruct: rocketStruct[rocketId])
         view.addSubview(infoScreenView)
         NSLayoutConstraint.activate([
             infoScreenView.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
             infoScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             infoScreenView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            infoScreenView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            infoScreenView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
 
         viewModel.setImage(backgroundCover: backgroundCover, rocketStruct: rocketStruct, rocketId: rocketId)
@@ -80,14 +86,14 @@ class InfoScreenViewController: UIViewController {
             backgroundCover.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundCover.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundCover.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundCover.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: 100)
- 		])
+            backgroundCover.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
+        ])
         view.bringSubviewToFront(infoScreenView)
     }
 
     @objc
     func openLaunchScreen() {
-        let launchScreenViewController = LaunchScreenViewController(rocketStruct: rocketStruct[rocketId],
+        let launchScreenViewController = LaunchScreenViewController(launchStruct: launchStruct,
                                                                     rocketName: rocketStruct[rocketId].name)
         navigationController?.pushViewController(launchScreenViewController, animated: true)
     }
@@ -95,13 +101,12 @@ class InfoScreenViewController: UIViewController {
     @objc
     func openSettingsScreen() {
         let settingsViewController = SettingsViewController()
-        navigationController?.pushViewController(settingsViewController, animated: true)
-//        present(settingsViewController, animated: true, completion: nil)
+//        navigationController?.pushViewController(settingsViewController, animated: true)
+        present(settingsViewController, animated: true, completion: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
-		self.rocketId = 0
-		super.init(coder: aDecoder)
+        rocketId = 0
+        super.init(coder: aDecoder)
     }
-
 }

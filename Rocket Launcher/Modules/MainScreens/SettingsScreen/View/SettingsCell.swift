@@ -8,12 +8,11 @@
 import UIKit
 
 class SettingsCell: UITableViewCell {
-
     static let identifier = "SettingsCell"
 
     var cellId: Int?
 
-	private lazy var viewModel = SettingsCellViewModel(cellId: cellId)
+    private lazy var viewModel = SettingsCellViewModel(cellId: cellId)
 
     private lazy var rocketSwitch: UISwitch = {
         let rocketSwitch = UISwitch()
@@ -33,9 +32,9 @@ class SettingsCell: UITableViewCell {
         return label
     }()
 
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .clear
         selectionStyle = .none
     }
 
@@ -48,7 +47,7 @@ class SettingsCell: UITableViewCell {
         contentView.addSubview(rocketSwitch)
         NSLayoutConstraint.activate([
             rocketSwitch.centerYAnchor.constraint(equalTo: centerYAnchor),
-            rocketSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            rocketSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
         ])
 
         addSubview(valueLabel)
@@ -56,12 +55,12 @@ class SettingsCell: UITableViewCell {
             valueLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             valueLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             valueLabel.trailingAnchor.constraint(equalTo: rocketSwitch.leadingAnchor),
-            valueLabel.heightAnchor.constraint(equalToConstant: 50)
+            valueLabel.heightAnchor.constraint(equalToConstant: 50),
         ])
-
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

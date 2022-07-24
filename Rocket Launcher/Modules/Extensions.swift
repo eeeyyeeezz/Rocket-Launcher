@@ -11,13 +11,11 @@ enum ValueEnum {
     enum Height: String {
         case mt
         case ft
-
     }
 
     enum Diametr: String {
         case mt
         case ft
-
     }
 
     enum Weight: String {
@@ -28,6 +26,18 @@ enum ValueEnum {
     enum PayloadWeights: String {
         case ft
         case kg
+    }
+}
+
+extension String {
+    static func getDate(_ dateString: String?, _ dateFormat: String) -> String {
+        guard let dateString = dateString else { return "Date Error" }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        let customDate = dateFormatter.date(from: dateString)
+        dateFormatter.dateStyle = .medium
+        guard let date = customDate else { return "Date Error " }
+        return dateFormatter.string(from: date)
     }
 }
 

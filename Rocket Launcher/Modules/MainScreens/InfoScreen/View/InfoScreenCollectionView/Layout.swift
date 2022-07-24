@@ -36,7 +36,6 @@ extension InfoScreenCollectionView {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
                                                             heightDimension: .fractionalHeight(1)))
         item.contentInsets.top = 16
-//    item.contentInsets.bottom = 16
         let height: NSCollectionLayoutDimension =
             .fractionalHeight((sectionNumber == 0 || sectionNumber == 3 || sectionNumber == 5) ? 0.15 : 0.25)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize:

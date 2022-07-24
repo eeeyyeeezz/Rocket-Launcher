@@ -8,7 +8,6 @@
 import Foundation
 
 class SettingsCellViewModel {
-
     private let cellId: Int?
 
     init(cellId: Int?) {
@@ -27,8 +26,6 @@ class SettingsCellViewModel {
             break
         }
 
-
         debugPrint("switch \(cellId)")
     }
-
 }

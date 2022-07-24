@@ -5,30 +5,44 @@
 //  Created by Daniil Varavin on 26.06.2022.
 //
 
+import RxRelay
+import RxSwift
 import UIKit
 
 class LaunchScreenViewController: UITableViewController {
-
-    private let rocketStruct: RocketStruct?
+    var launchStructArray = [LaunchStruct]()
 
     private let rocketName: String
 
-    init(rocketStruct: RocketStruct?, rocketName: String) {
+    init(launchStruct: [LaunchStruct], rocketName: String) {
         self.rocketName = rocketName
-        self.rocketStruct = rocketStruct
         super.init(nibName: nil, bundle: nil)
+        parsLaunchStruct(launchStructArray: launchStruct)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		setupBinding()
+        setupBinding()
+    }
+
+    private func parsLaunchStruct(launchStructArray: [LaunchStruct]) {
+        launchStructArray.forEach { element in
+            if element.rocket.rawValue == "5e9d0d95eda69955f709d1eb", rocketName == "Falcon 1" {
+                self.launchStructArray.append(element)
+            } else if element.rocket.rawValue == "5e9d0d95eda69973a809d1ec", rocketName == "Falcon 9" {
+                self.launchStructArray.append(element)
+            } else if element.rocket.rawValue == "5e9d0d95eda69974db09d1ed", rocketName == "Falcon Heavy" {
+                self.launchStructArray.append(element)
+            }
+        }
     }
 
     private func setupBinding() {
         title = rocketName
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .black
+        view.backgroundColor = .black
+        debugPrint(launchStructArray.count)
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.barTintColor = UIColor.black
         tableView.register(LaunchCell.self, forCellReuseIdentifier: LaunchCell.identifier)
@@ -36,29 +50,16 @@ class LaunchScreenViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LaunchCell.identifier, for: indexPath) as! LaunchCell
+        cell.viewModel = LaunchCellViewModel(launchStructArray: launchStructArray, cellId: indexPath.row)
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 10 }
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int { launchStructArray.count }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 100 }
+    override func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat { UIScreen.main.bounds.height / 6 }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-class LaunchCell: UITableViewCell {
-
-    static let identifier = "LaunchCell"
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .white
-        selectionStyle = .none
-    }
-
-    required init?(coder aDecoder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

@@ -8,7 +8,6 @@
 import UIKit
 
 class SettingsViewController: UITableViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
@@ -42,8 +41,7 @@ class SettingsViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 4 }
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int { 4 }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 100 }
-
+    override func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat { 100 }
 }

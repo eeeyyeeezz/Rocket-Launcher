@@ -61,10 +61,11 @@ extension InfoScreenCollectionView {
         }
     }
 
+//    rocketStruct?.firstFlight
     func getValueLabel(indexPath: IndexPath) -> UILabel? {
         switch indexPath.section {
         case 2:
-            return getLabel(text: "\(rocketStruct?.firstFlight ?? "noinfo")\n\n"
+            return getLabel(text: "\(String.getDate(rocketStruct?.firstFlight, "yyyy-MM-dd"))\n\n"
                 + "\(rocketStruct?.country ?? "noinfo")\n\n"
                 + "$\((rocketStruct?.costPerLaunch ?? 0) / 1_000_000) млн\n\n",
                 color: #colorLiteral(red: 0.9960784314, green: 0.9960784314, blue: 0.9960784314, alpha: 1),
