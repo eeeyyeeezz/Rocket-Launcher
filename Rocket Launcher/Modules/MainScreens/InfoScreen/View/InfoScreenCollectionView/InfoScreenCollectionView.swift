@@ -18,7 +18,6 @@ class InfoScreenCollectionView: UICollectionView {
         backgroundColor = .black
         register(ParametrsCell.self, forCellWithReuseIdentifier: ParametrsCell.identifier)
         register(LabelCell.self, forCellWithReuseIdentifier: LabelCell.identifier)
-//        roundCorners(corners: [.topLeft, .topRight], radius: 15)
         translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -38,7 +37,7 @@ extension InfoScreenCollectionView: UICollectionViewDataSource, UICollectionView
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 1 { // Настройка для collectionView
+        if section == 1 {
             return 4
         }
         return 1

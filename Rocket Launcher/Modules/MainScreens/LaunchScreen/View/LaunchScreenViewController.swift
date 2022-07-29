@@ -25,13 +25,18 @@ class LaunchScreenViewController: UITableViewController {
         setupBinding()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isTranslucent = true
+    }
+
     private func parsLaunchStruct(launchStructArray: [LaunchStruct]) {
         launchStructArray.forEach { element in
             if element.rocket.rawValue == "5e9d0d95eda69955f709d1eb", rocketName == "Falcon 1" {
                 self.launchStructArray.append(element)
             } else if element.rocket.rawValue == "5e9d0d95eda69973a809d1ec", rocketName == "Falcon 9" {
                 self.launchStructArray.append(element)
-            } else if element.rocket.rawValue == "5e9d0d95eda69974db09d1ed", rocketName == "Falcon Heavy" {
+            } else if element.rocket.rawValue == "5e9d0d95eda69974db09d1ed", rocketName == "Falcon ceHeavy" {
                 self.launchStructArray.append(element)
             }
         }
@@ -42,6 +47,7 @@ class LaunchScreenViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .black
+        navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.barTintColor = UIColor.black
         tableView.register(LaunchCell.self, forCellReuseIdentifier: LaunchCell.identifier)

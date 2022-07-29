@@ -8,15 +8,6 @@
 import UIKit
 
 class InfoPageViewController: UIPageViewController {
-//    private let viewModel = InfoScreenViewModel()
-
-//    private let arrayInfoScreen: [InfoScreenViewController] = {
-//        var array = [InfoScreenViewController]()
-//        for i in 0...3 {
-//            array.append(InfoScreenViewController(rocketId: i))
-//        }
-//        return array
-//    }()
 
     override init(transitionStyle _: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey: Any]? = nil) {
         super.init(transitionStyle: .scroll, navigationOrientation: navigationOrientation, options: options)
@@ -38,7 +29,6 @@ extension InfoPageViewController: UIPageViewControllerDelegate, UIPageViewContro
         let index = viewController.rocketId
         if index != 0 {
             return InfoScreenViewController(rocketId: index - 1)
-//            return arrayInfoScreen[index - 1]
         }
         return nil
     }
@@ -48,7 +38,6 @@ extension InfoPageViewController: UIPageViewControllerDelegate, UIPageViewContro
         let index = viewController.rocketId
         if index != 3 {
             return InfoScreenViewController(rocketId: index + 1)
-//            return arrayInfoScreen[index + 1]
         }
         return nil
     }

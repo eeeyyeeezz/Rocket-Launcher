@@ -14,15 +14,15 @@ class SettingsCellViewModel {
         self.cellId = cellId
     }
 
-    func changeSwitchValue() {
-        guard let cellId = cellId else { return }
-        switch cellId {
-        case 0:
-            UserDefaults.standard.set("mt", forKey: ValueEnum.Height.mt.rawValue)
-        default:
-            break
-        }
+    func getValueParametrs() -> [String] {
+      guard let cellId = cellId else { return [] }
+      var array = [String]()
+      array = cellId > 1 ? ["kg", "lb"] : ["mt", "ft"]
+      return array
+    }
 
-        debugPrint("switch \(cellId)")
+    func changeSwitchValue() {
+      guard let cellId = cellId else { return }
+      debugPrint("switch \(cellId)")
     }
 }

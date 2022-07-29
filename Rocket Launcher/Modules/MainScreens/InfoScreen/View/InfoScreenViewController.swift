@@ -7,7 +7,6 @@
 
 import RxRelay
 import RxSwift
-import UIKit
 
 class InfoScreenViewController: UIViewController {
     let rocketId: Int

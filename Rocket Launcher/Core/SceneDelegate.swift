@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         window?.rootViewController = UINavigationController(rootViewController: InfoPageViewController())
-        window?.backgroundColor = UIColor.white
+        window?.backgroundColor = UIColor.black
         window?.makeKeyAndVisible()
     }
 

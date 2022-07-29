@@ -14,8 +14,8 @@ class SettingsCell: UITableViewCell {
 
     private lazy var viewModel = SettingsCellViewModel(cellId: cellId)
 
-    private lazy var rocketSwitch: UISwitch = {
-        let rocketSwitch = UISwitch()
+    private lazy var rocketSwitch: UISegmentedControl = {
+      	let rocketSwitch = UISegmentedControl.init(items: viewModel.getValueParametrs())
         rocketSwitch.addTarget(self, action: #selector(handleSwitch), for: .valueChanged)
         rocketSwitch.translatesAutoresizingMaskIntoConstraints = false
         return rocketSwitch
@@ -47,6 +47,7 @@ class SettingsCell: UITableViewCell {
         contentView.addSubview(rocketSwitch)
         NSLayoutConstraint.activate([
             rocketSwitch.centerYAnchor.constraint(equalTo: centerYAnchor),
+            rocketSwitch.widthAnchor.constraint(equalToConstant: 100),
             rocketSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
         ])
 
