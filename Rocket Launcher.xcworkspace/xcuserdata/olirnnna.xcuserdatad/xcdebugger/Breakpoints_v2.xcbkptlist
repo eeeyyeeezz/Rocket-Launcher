@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "DA6903CD-6184-4C20-9B9F-2C1D023668C7"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0A2E1B3E-8567-493A-944D-4C4D3880099D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rocket Launcher/Modules/MainScreens/InfoScreen/View/InfoScreenCollectionView/InfoScreenCollectionView.swift"
+            startingColumnNumber = "103"
+            endingColumnNumber = "103"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "setupLabelCell(indexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "23CAF295-4C0B-4CF4-ADC8-7CD4EDBB4CC7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rocket Launcher/Modules/MainScreens/InfoScreen/View/InfoScreenCollectionView/Cells/ParametrsCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "prepareForReuse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

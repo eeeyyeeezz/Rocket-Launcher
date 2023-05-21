@@ -36,10 +36,6 @@ class LabelCell: UICollectionViewCell {
         return button
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-
     override func layoutSubviews() {
         super.layoutSubviews()
         setupBinding()
@@ -48,10 +44,10 @@ class LabelCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         cellId = nil
-        mainLabel = nil
-        valueLabel = nil
         button.isHidden = true
         settingsButton.isHidden = true
+		mainLabel?.removeFromSuperview()
+		valueLabel?.removeFromSuperview()
     }
 
     func setupBinding() {
@@ -105,8 +101,4 @@ class LabelCell: UICollectionViewCell {
         NotificationCenter.default.post(name: .settings, object: nil)
     }
 
-    @available(*, unavailable)
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

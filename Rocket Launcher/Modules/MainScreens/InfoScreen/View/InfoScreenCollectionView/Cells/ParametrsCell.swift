@@ -32,6 +32,12 @@ class ParametrsCell: UICollectionViewCell {
         layer.cornerRadius = 25
         setupBinding()
     }
+	
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		value.text = nil
+		magnitude.text = nil
+	}
 
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
@@ -41,6 +47,8 @@ class ParametrsCell: UICollectionViewCell {
 
 extension ParametrsCell {
     func setupBinding() {
+		value.text = nil
+		magnitude.text = nil
         addSubview(value)
         NSLayoutConstraint.activate([
             value.centerXAnchor.constraint(equalTo: centerXAnchor),

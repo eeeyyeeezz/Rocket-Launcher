@@ -47,25 +47,23 @@ extension InfoScreenCollectionView: UICollectionViewDataSource, UICollectionView
 
     private func setupParametrsCell(indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: ParametrsCell.identifier, for: indexPath) as! ParametrsCell
-        DispatchQueue.main.async {
-            switch indexPath.row {
-            case 0:
-                cell.magnitude.text = "Высота, mt"
-                cell.value.text = String(self.rocketStruct?.height.meters ?? 0)
-            case 1:
-                cell.magnitude.text = "Диаметр, mt"
-                cell.value.text = String(self.rocketStruct?.diameter.meters ?? 0)
-            case 2:
-                cell.magnitude.text = "Масса, kg"
-                cell.value.text = String(self.rocketStruct?.mass.kg ?? 0)
-            case 3:
-                cell.magnitude.text = "Нагрузка, kg"
-                cell.value.text = String(self.rocketStruct?.payloadWeights.first?.kg ?? 0)
-            default:
-                cell.magnitude.text = "default"
-                cell.value.text = "nil"
-            }
-        }
+		switch indexPath.row {
+		case 0:
+			cell.magnitude.text = "Высота, mt"
+			cell.value.text = String(self.rocketStruct?.height.meters ?? 0)
+		case 1:
+			cell.magnitude.text = "Диаметр, mt"
+			cell.value.text = String(self.rocketStruct?.diameter.meters ?? 0)
+		case 2:
+			cell.magnitude.text = "Масса, kg"
+			cell.value.text = String(self.rocketStruct?.mass.kg ?? 0)
+		case 3:
+			cell.magnitude.text = "Нагрузка, kg"
+			cell.value.text = String(self.rocketStruct?.payloadWeights.first?.kg ?? 0)
+		default:
+			cell.magnitude.text = "default"
+			cell.value.text = "nil"
+		}
         return cell
     }
 
